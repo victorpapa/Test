@@ -19,7 +19,7 @@ public class MainClass{
         }
     }
 
-    private static class fingerServer extends Thread{
+    private static class fingerServer implements Runnable{
         @Override
         public void run(){
             try {
@@ -38,7 +38,7 @@ public class MainClass{
     }
 
     private static void runServer(){
-        Thread fingerServer = new fingerServer();
+        Thread fingerServer = new Thread(new fingerServer());
         fingerServer.start();
     }
 
